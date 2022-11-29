@@ -10,7 +10,6 @@ const ChannelDetail = () => {
   const [videos, setVideos] = useState(null);
 
   const { id } = useParams();
-
   useEffect(() => {
     const fetchResults = async () => {
       const data = await fetchFromAPI(`channels?part=snippet&id=${id}`);
@@ -21,10 +20,8 @@ const ChannelDetail = () => {
 
       setVideos(videosData?.items);
     };
-
     fetchResults();
   }, [id]);
-
   return (
     <Box minHeight="95vh">
       <Box>
@@ -42,5 +39,4 @@ const ChannelDetail = () => {
     </Box>
   );
 };
-
 export default ChannelDetail;
